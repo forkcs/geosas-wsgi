@@ -2,7 +2,7 @@ from typing import Callable, NoReturn
 from functools import wraps
 from urllib.parse import parse_qs
 
-from response import ERROR_404, HELLO_WORLD
+from wsgi_rest.response import ERROR_404, HELLO_WORLD
 
 
 def get_request_dict_from_environ(environ):

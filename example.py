@@ -1,5 +1,5 @@
-from application import App
-from response import Response, JsonResponse
+from wsgi_rest.application import App
+from wsgi_rest.response import Response, JsonResponse
 
 app = App()
 
