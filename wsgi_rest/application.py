@@ -3,9 +3,8 @@ from functools import wraps
 from typing import Callable
 from urllib.parse import parse_qs
 
-from wsgi_rest.routes import Route
 from wsgi_rest.responses import ERROR_404, HELLO_WORLD
-
+from wsgi_rest.routes import Route
 
 Request = namedtuple('Request', [
     'method',
@@ -49,7 +48,7 @@ class App:
         if use_default_routes:
             self.routes.extend(DEFAULT_ROUTES)
 
-    def route(self, path: str, method: str):
+    def route(self, path: str, method: str):  # pragma: no coverage
         def wrapper(view: Callable):
             @wraps(view)
             def wrapped(*args, **kwargs):

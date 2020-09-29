@@ -2,8 +2,8 @@ import json
 
 import pytest
 
-from wsgi_rest.responses import Response, JsonResponse
 from wsgi_rest.http import HTTP_200_OK
+from wsgi_rest.responses import Response, JsonResponse
 
 
 class TestResponse:
@@ -80,9 +80,9 @@ class TestHeaders:
     def test_set_new_valid_header(self, name, value, response_class):
         response = response_class(HTTP_200_OK)
 
-        assert name not in response._headers.keys()
+        assert name not in response.headers.keys()
         response.set_header(name, value)
-        assert response._headers[name] == value
+        assert response.headers[name] == value
 
     @pytest.mark.parametrize(
         'name, value', [
@@ -97,3 +97,11 @@ class TestHeaders:
         response = response_class(HTTP_200_OK)
         with pytest.raises(TypeError):
             response.set_header(name, value)
+
+    @pytest.mark.parametrize('response_class', (Response, JsonResponse))
+    def test_rewrite_existing_header(self, response_class):
+        response = response_class(HTTP_200_OK)
+        response.set_header('NAME', 'VALUE')
+        assert response.headers['NAME'] == 'VALUE'
+        response.set_header('NAME', 'NEW_VALUE')
+        assert response.headers['NAME'] == 'NEW_VALUE'
