@@ -98,7 +98,7 @@ class App:
         def wsgi_application(environ, start_response):
             request = get_request_from_environ(environ)
             response = self.dispatch(request)
-            headers = response.headers
+            headers = response.headers.items()
             status_code = response.code
             start_response(status_code, headers)
             return response.body.encode('utf-8')
