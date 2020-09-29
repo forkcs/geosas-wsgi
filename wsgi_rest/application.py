@@ -43,7 +43,8 @@ def get_request_from_environ(environ: dict) -> Request:
 
 
 DEFAULT_ROUTES = [
-    Route(path='/', method='POST', handler=lambda req: HELLO_WORLD)
+    Route(path='/', method='POST', handler=lambda req: HELLO_WORLD),
+    Route(path='/', method='GET', handler=lambda req: HELLO_WORLD)
 ]
 
 
@@ -98,9 +99,9 @@ class App:
         def wsgi_application(environ, start_response):
             request = get_request_from_environ(environ)
             response = self.dispatch(request)
-            headers = response.headers.items()
+            headers = [(name, value) for name, value in response.headers.items()]
             status_code = response.code
             start_response(status_code, headers)
-            return response.body.encode('utf-8')
+            return [response.body.encode('utf-8')]
 
         return wsgi_application
