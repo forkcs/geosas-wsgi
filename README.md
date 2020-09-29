@@ -1,6 +1,6 @@
 # wsgi-rest
 
-**wsgi-rest** an absolutely simple framework for creating web-services on HTTP or REST API.
+**wsgi-rest** is an absolutely simple framework for creating web-services on HTTP or REST API.
 This project is written using only standart python library, so you can use it without installing external dependencies.
 
 
