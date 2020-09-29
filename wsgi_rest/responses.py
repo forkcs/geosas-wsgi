@@ -3,7 +3,6 @@ from typing import Union, Dict
 
 from wsgi_rest.http import HTTP_200_OK, HTTP_404_NOT_FOUND
 
-
 __all__ = ['Response', 'JsonResponse', 'ERROR_404', 'HELLO_WORLD']
 
 

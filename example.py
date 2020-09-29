@@ -1,6 +1,8 @@
+from wsgiref.simple_server import make_server
+
 from wsgi_rest.application import App
-from wsgi_rest.responses import Response, JsonResponse
 from wsgi_rest.http import HTTP_200_OK
+from wsgi_rest.responses import Response, JsonResponse
 
 app = App()
 
@@ -16,3 +18,7 @@ def echo_view(request):
 
 
 application = app.get_application()
+
+with make_server('', 8000, application) as httpd:
+    print('Listening on 8000 port...')
+    httpd.serve_forever()
