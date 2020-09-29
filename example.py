@@ -1,6 +1,6 @@
 from wsgiref.simple_server import make_server
 
-from wsgi_rest.application import App
+from wsgi_rest import App
 from wsgi_rest.http import HTTP_200_OK
 from wsgi_rest.responses import Response, JsonResponse
 

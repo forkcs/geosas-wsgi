@@ -3,15 +3,8 @@ from functools import wraps
 from typing import Callable
 from urllib.parse import parse_qs
 
+from wsgi_rest.routes import Route
 from wsgi_rest.responses import ERROR_404, HELLO_WORLD
-
-
-class Route(namedtuple('Route', ('path', 'method', 'handler'))):
-
-    def __eq__(self, other):
-        if self.path == other.path and self.method == other.method:
-            return True
-        return False
 
 
 Request = namedtuple('Request', [
