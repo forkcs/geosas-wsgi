@@ -1,5 +1,5 @@
 from wsgi_rest.application import App
-from wsgi_rest.response import Response, JsonResponse
+from wsgi_rest.responses import Response, JsonResponse
 
 app = App()
 
@@ -11,7 +11,7 @@ def echo_view(request):
 
 @app.route('/echo', 'POST')
 def echo_view(request):
-    return JsonResponse(code='200', json_dict={'request_body': request["body"]})
+    return JsonResponse(code='200', json_data={'request_body': request["body"]})
 
 
 application = app.get_application()
