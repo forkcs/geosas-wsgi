@@ -1,16 +1,32 @@
-## wsgi-rest
+# wsgi-rest
 
-It`s an absolutely simple framework for creating web-services on HTTP or REST API.
+**wsgi-rest** an absolutely simple framework for creating web-services on HTTP or REST API.
 This project is written using only standart python library, so you can use it without installing external dependencies.
 
-### Requirements
+
+## Requirements
+```
  - Python 3.7+
  - pytest (for running tests)
+```
 
-### Usage
+
+## Installation
+Download the project
+``` 
+git clone https://github.com/forkcs/wsgi-rest.git
+cd wsgi-rest/
+```
+
+
+## Usage
 Run tests:
-`pip install pytest
-pytest tests/`
+```
+pip install pytest
+pytest tests/
+```
 
 Run example program:
-`python example.py`
+```
+python example.py
+```
