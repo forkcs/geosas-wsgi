@@ -22,6 +22,10 @@ class BaseResponse:
 
         self._headers: Dict[str, str] = get_default_headers()
 
+    @property
+    def headers(self):
+        return self._headers
+
     def set_header(self, name: str, value: str) -> None:
         """Add new header or replace existing."""
 
