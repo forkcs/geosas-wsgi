@@ -17,7 +17,7 @@ def test_simple_full_cycle():
     @app.route('/test_path', 'GET')
     def view(request):
         if 'hello' in request.query_params:
-            data = '<h1>Hello, user!</h1>'
+            data = f'<h1>Hello, {request.query_params["hello"][0]}!</h1>'
         else:
             data = 'Say hello to me'
 
@@ -39,7 +39,7 @@ def test_simple_full_cycle():
     resp = requests.get('http://localhost:8000/test_path')
     assert resp.text == 'Say hello to me'
 
-    resp = requests.get('http://localhost:8000/test_path?hello=1')
-    assert resp.text == '<h1>Hello, user!</h1>'
+    resp = requests.get('http://localhost:8000/test_path?hello=name')
+    assert resp.text == '<h1>Hello, name!</h1>'
 
     stop_server.set()
