@@ -7,7 +7,7 @@ This project is written using only standart python library, so you can use it wi
 ## Requirements
 ```
  - Python 3.7+
- - pytest (for running tests)
+ - pytest and requests (for running tests)
 ```
 
 
